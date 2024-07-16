@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color:greenyellow;
+  color: white;
+}
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float:left;
+  width: 200px;
+}
+
+div.desc {
+  padding: 20px;
+}
+div.gallery img {
+  object-fit: cover;
+    object-position: center center;
+    min-height: 150%;
+    color: #e9eaf0;
+    text-align: center;
+}
+
+.cart {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #f2f2f2;
+      border-left: 1px solid #ccc;
+      padding: 10px;
+      width: 300px;
+      height: 100vh;
+      overflow-y: auto;
+      display: none; /* Initially hidden */
+    }
+
+    .cart-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .cart-items {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .cart-item {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .cart-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    .cart-item span {
+      flex: 1;
+    }
+
+    .cart-item button {
+      margin-left: 10px;
+    }
+
+    .cart-total {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .checkout-button {
+      width: 100%;
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .checkout-button:hover {
+      background-color: darkgreen;
+    }
+    
+
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="#Mens">Mens</a>
+  <a href="w.html">Womens</a>
+  <a href="recycle.html">Recycle</a>
+
+  <a href="donate.html">Donate clothes</a>
+  <a href="login.html">Login/signup</a>
+  <a href="#" onclick="toggleCart()">Cart</a>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="#description code of shirt or pants">
+    <img src="https://cdn.shopify.com/s/files/1/0337/9413/0052/files/3d-cube.jpg?v=1718190320&width=360" style="width:200px;height:200px;">
+  </a>
+  <div class="desc"><p>3D Cubes Classic Fit T-Shirt</p>
+
+    <span>₹499</span>
+    50% Off
+    
+
+    <del>₹999</del>
+   
+    <br> <button onclick="addToCart('3D Cubes Classic Fit T-Shirt', 499, 'https://cdn.shopify.com/s/files/1/0337/9413/0052/files/3d-cube.jpg?v=1718190320&width=360')">Add to cart</button>
+  </div>
+</div>
+
+
+<div class="gallery">
+  <a target="_blank" href="#">
+    <img src="https://nobero.com/cdn/shop/files/Black.jpg?v=1711978082&width=360" alt="Forest"  style="width:200px;height:200px;">
+  </a>
+  <div class="desc"><p> Oversized Mens's T-Shirt</p>
+
+  
+  
+    <span>  ₹499</span>
+    50% Off
+    <del> ₹999</del>
+    <br>
+    <button onclick="addToCart(' Oversized Mens T-Shirt', 499 , 'https://nobero.com/cdn/shop/files/Black.jpg?v=1711978082&width=360')">Add to cart</button>
+  </div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="#">
+      <img src="https://nobero.com/cdn/shop/products/WhatsAppImage2023-02-22at6.52.23PM_ae7ed12b-db4a-4052-a03a-384f58378932.jpg?v=1677747944&width=360" alt="Northern Lights" width="200px" height="200px">
+     </a>
+     <div class="desc"><p>Be Free Classic Fit T-Shirt</p>
+     <span>₹499</span>
+      50% Off
+     <del>₹999</del>
+     <br><button type="button">Add to cart</button>
+      </div>
+      </div>
+     
+<div class="gallery">
+  <a target="_blank" href="#">
+    <img src="https://cdn.shopify.com/s/files/1/0337/9413/0052/files/loop-v2.jpg?v=1718189856&width=360" alt="Mountains" width="200px" height="200px">
+  </a>
+  <div class="desc"><p>Harmony In Chaos Classic Fit T-Shirt</p>
+
+    <span>₹499</span>
+    50% Off
+    <del>₹999</del>
+    <br><button type="button">Add to cart</button>
+  </div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="#">
+    <img src="https://nobero.com/cdn/shop/files/12_42cd2c25-6742-401f-bc35-d78dc0a445a1.jpg?v=1711972120&width=360" alt="Mountains" width="200px" height="200px">
+   </a>
+     <div class="desc"><p>Voyage Classic Fit T-Shirt</p>
+
+    <span>₹499</span>
+    50% Off
+    <del>₹999</del>
+    <br><button type="button">Add to cart</button>
+   </div>
+  </div>
+  <div class="gallery">
+    <a target="_blank" href="#">
+      <img src="https://nobero.com/cdn/shop/files/be-fearlessly-authentic_94b5aff7-e936-4295-a75b-8198e966309d_1.jpg?v=1704111146&width=360" alt="Mountains" width="200px" height="200px">
+    </a>
+    <div class="desc">
+     <p> Authentic Classic Fit T-Shirt</p>
+      <span>₹499</span>
+      50% Off
+      <del>₹999</del>
+      <br><button type="button">Add to cart</button>
+    </div>
+    </div>
+    <div class="gallery">
+      <a target="_blank" href="#">
+        <img src="https://nobero.com/cdn/shop/files/the-place.jpg?v=1709125918&width=360" alt="Mountains" width="200px" height="200px">
+      </a>
+      <div class="desc">
+       
+       <p> Mens Classic Fit T-Shirt</p>
+    
+        <span>₹499</span>
+        50% Off
+        <del>₹999</del>
+        <br><button type="button">Add to cart</button>
+      </div>
+      </div>
+      
+    <div class="gallery">
+      <a target="_blank" href="#">
+        <img src="https://cdn.shopify.com/s/files/1/0337/9413/0052/files/reach_94e5c2c5-7205-4cdf-b811-d8f4bfe9d7f5.jpg?v=1715328070&width=360" alt="Mountains" width="200px" height="200px">
+      </a>
+      <div class="desc">
+       
+        <p>Reach New Heights Classic Fit T-Shirt</p>
+    
+        <span>₹499</span>
+        50% Off
+        <del>₹999</del>
+        <br><button type="button">Add to cart</button>
+      </div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="#">
+          <img src="https://cdn.shopify.com/s/files/1/0337/9413/0052/files/balance-v2-5.jpg?v=1718190636&width=360" alt="Mountains" width="200px" height="200px">
+        </a>
+        <div class="desc">
+         
+          <p>Balance Sand Classic Fit T-Shirt</p>
+      
+          <span>₹499</span>
+          50% Off
+          <del>₹999</del>
+          <br><button type="button">Add to cart</button>
+        </div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="#">
+            <img src=" https://nobero.com/cdn/shop/files/13_c28b7727-769a-4494-af2f-2b872cd5532f.jpg?v=1712051554&width=360" alt="Mountains" width="200px" height="200px">
+          </a>
+          <div class="desc">
+           
+            <p>Seek The Positive Classic Fit T-Shirt</p>
+        
+            <span>₹499</span>
+            50% Off
+            <del>₹999</del>
+            <br><button type="button">Add to cart</button>
+          </div>
+          </div>
+          <div class="gallery">
+            <a target="_blank"  href="#">
+              <img src=" https://nobero.com/cdn/shop/files/make-it-happen-black.jpg?v=1716881574&width=360" alt="Mountains" width="200px" height="200px">
+            </a>
+            <div class="desc">
+             
+              <p>Make It Happen Classic Fit T-Shirt</p>
+          
+              <span>₹499</span>
+              50% Off
+              <del>₹999</del>
+              <br><button type="button">Add to cart</button>
+            </div>
+            </div>
+            <div class="gallery">
+              <a target="_blank" href="#">
+                <img src="https://cdn.shopify.com/s/files/1/0337/9413/0052/files/WhatsAppImage2024-02-01at5.36.47PM.jpg?v=1706944702&width=360" alt="Mountains" width="200px" height="200px">
+              </a>
+              <div class="desc">
+               
+                <p>Dream Classic Fit T-Shirt</p>
+            
+                <span>₹499</span>
+                50% Off
+                <del>₹999</del>
+                <br><button type="button">Add to cart</button>
+              </div>
+              </div>
+              
+            
+              <div class="gallery">
+                <a target="_blank" href="#">
+                  <img src="https://cdn.shopify.com/s/files/1/0337/9413/0052/files/over-the-horizonwr.jpg?v=1716881455&width=360" alt="paragrahp content" width="200px" height="200px">
+                </a>
+                <div class="desc">
+                 
+                  <p>Over The Horizon Classic Fit T-Shirt</p>
+              
+                  <span>₹499</span>
+                  50% Off
+                  <del>₹999</del>
+                  <br><button type="button">Add to cart</button>
+                </div>
+                </div>
+                <div class="gallery">
+                  <a target="_blank" href="img_mountains.jpg">
+                    <img src="https://cdn.shopify.com/s/files/1/0337/9413/0052/files/blush-limitless.jpg?v=1684135969&width=360" alt="Mountains" width="200px" height="200px">
+                  </a>
+                  <div class="desc">
+                   
+                    <p>Limitless Classic Fit T-Shirt</p>
+                
+                    <span>₹499</span>
+                    <span>50% Off</span>
+                    <del>₹999</del>
+                    <br><button type="button">Add to cart</button>
+                  </div>
+                  </div>
+                  <div class="gallery">
+                    <a target="_blank" href="img_mountains.jpg">
+                      <img src="https://nobero.com/cdn/shop/files/ArcticWolfCargoPocketJoggers1_f3c8dfe8-9bd0-4896-9102-e19da792e10c.webp?v=1716193736&width=360" alt="Mountains" width="200px" height="200px">
+                    </a>
+                    <div class="desc">
+                     
+                      <p>Oversized Cargo Pocket Joggers
+
+                      </p>
+                  
+                      <span>₹1299</span>
+                      <span>50% Off</span>
+                      <del>₹2599</del>
+                      <br><button type="button">Add to cart</button>
+                    </div>
+                    </div>
+                    <div class="gallery">
+                      <a target="_blank" href="img_mountains.jpg">
+                        <img src="https://nobero.com/cdn/shop/files/NewImagesJoggers-0009.webp?v=1711955024&width=360" width="200px" height="200px">
+                      </a>
+                      <div class="desc">
+                       
+                        <p>Oversized Zaedn Side Panel Joggers
+  
+                        </p>
+                    
+                        <span>₹999</span>
+                        <span>50% Off</span>
+                        <del>₹1999</del>
+                        <br><button type="button">Add to cart</button>
+                      </div>
+                      </div>
+                      <div class="gallery">
+                        <a target="_blank" href="img_mountains.jpg">
+                          <img src="https://nobero.com/cdn/shop/files/1719991169090_1.png?v=1719992143&width=360" alt="Mountains" width="200px" height="200px">
+                        </a>
+                        <div class="desc">
+                         
+                          <p>Straight Fit Slant Pocket Joggers
+                          </p>
+                      
+                          <span>₹1299</span>
+                          <span>50% Off</span>
+                          <del>₹2599</del>
+                          <br><button type="button">Add to cart</button>
+                        </div>
+                        </div>
+                        <div class="gallery">
+                          <a target="_blank" href="img_mountains.jpg">
+                            <img src="https://nobero.com/cdn/shop/files/JoggersWebImages-0011.webp?v=1717762337&width=360" alt="Mountains" width="200px" height="200px">
+                          </a>
+                          <div class="desc">
+                           
+                            <p>Baggy Fit Nicolas Joggers
+                            </p>
+                        
+                            <span>₹1299</span>
+                            <span>50% Off</span>
+                            <del>₹2599</del>
+                            <br><button type="button">Add to cart</button>
+                          </div>
+                          </div>
+                          <div class="gallery">
+                            <a target="_blank" href="img_mountains.jpg">
+                              <img src="https://nobero.com/cdn/shop/files/NewImagesJoggers-0007.webp?v=1711953881&width=360" alt="Mountains" width="200px" height="200px">
+                            </a>
+                            <div class="desc">
+                             
+                              <p>Oversized Cargo Joggers
+                              </p>
+                          
+                              <span>₹1299</span>
+                              <span>50% Off</span>
+                              <del>₹2599</del>
+                              <br><button type="button">Add to cart</button>
+                            </div>
+                            </div>
+                            <div class="gallery">
+                              <a target="_blank" href="img_mountains.jpg">
+                                <img src="https://cdn.shopify.com/s/files/1/0337/9413/0052/files/VerdigrisBlueWebImages1.webp?v=1719819580&width=360" alt="Mountains" width="200px" height="200px">
+                              </a>
+                              <div class="desc">
+                               
+                                <p>Oversized Cargo Joggers
+                                </p>
+                            
+                                <span>₹1299</span>
+                                <span>50% Off</span>
+                                <del>₹2599</del>
+                                <br><button type="button">Add to cart</button>
+                              </div>
+                              </div>
+                              <div class="gallery">
+                                <a target="_blank" href="img_mountains.jpg">
+                                  <img src="https://cdn.shopify.com/s/files/1/0337/9413/0052/files/AWZipWebcopy_5fd15f88-9994-43e3-ace0-0ff114be42b0.webp?v=1712920835&width=360" alt="Mountains" width="200px" height="200px">
+                                </a>
+                                <div class="desc">
+                                 
+                                  <p>Oversized Cargo Joggers
+                                  </p>
+                              
+                                  <span>₹1299</span>
+                                  <span>50% Off</span>
+                                  <del>₹2599</del>
+                                  <br><button type="button">Add to cart</button>
+                                </div>
+                                </div>
+                        
+      
+    
+
+
+                
+<div class="cart" id="cart">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button onclick="toggleCart()">Close</button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <!-- Cart items will be dynamically added here -->
+  </div>
+  <div class="cart-total" id="cart-total">
+    Total: ₹0
+  </div>
+  <button class="checkout-button" onclick="checkout()">Buy Now</button>
+</div>
+
+<script>
+  let cart = [];
+
+  // Function to add items to cart
+  function addToCart(name, price, imageUrl) {
+    cart.push({ name, price, imageUrl });
+    updateCart();
+  }
+
+  // Function to update cart
+  function updateCart() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalContainer = document.getElementById('cart-total');
+
+    // Clear previous items
+    cartItemsContainer.innerHTML = '';
+
+    // Populate cart items
+    cart.forEach((item, index) => {
+      const cartItemElement = document.createElement('div');
+      cartItemElement.classList.add('cart-item');
+      cartItemElement.innerHTML = `
+        <img src="${item.imageUrl}" alt="${item.name}">
+        <span>${item.name}</span>
+        <span>₹${item.price}</span>
+        <button onclick="removeFromCart(${index})">Remove</button>
+      `;
+      cartItemsContainer.appendChild(cartItemElement);
+    });
+
+    // Calculate and display total amount
+    const total = cart.reduce((acc, item) => acc + item.price, 0);
+    cartTotalContainer.textContent = Total: ₹${total};
+
+    // Show or hide cart based on cart items
+    const cartElement = document.getElementById('cart');
+    if (cart.length > 0) {
+      cartElement.style.display = 'block';
+    } else {
+      cartElement.style.display = 'none';
+    }
+  }
+
+  // Function to remove item from cart
+  function removeFromCart(index) {
+    cart.splice(index, 1); // Remove item from cart array
+    updateCart(); // Update cart UI
+  }
+
+  // Function to toggle cart visibility
+  function toggleCart() {
+    const cartElement = document.getElementById('cart');
+    if (cartElement.style.display === 'block') {
+      cartElement.style.display = 'none';
+    } else {
+      updateCart();
+      cartElement.style.display = 'block';
+    }
+  }
+
+  // Function to simulate checkout
+  function checkout() {
+    alert('Checkout - Total Amount: ₹' + cart.reduce((acc, item) => acc + item.price, 0));
+    cart = []; // Clear cart after checkout
+    updateCart(); // Update cart UI
+  }
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
